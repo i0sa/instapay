@@ -10,6 +10,15 @@ import Foundation
 import DropDown
 
 class FormDropDownCell: UITableViewCell, FormCellProtocol {
+    var items: [DropDownItem]?{
+        didSet{
+            if let items = items {
+                dropDown.dataSource = items.map({ (item) in
+                    return item.title ?? ""
+                })
+            }
+        }
+    }
     let dropDown = DropDown()
 
     lazy var field: UITextField = {
@@ -62,11 +71,10 @@ class FormDropDownCell: UITableViewCell, FormCellProtocol {
         dropDown.anchorView = field // UIView or UIBarButtonItem
 
         // The list of items to display. Can be changed dynamically
-        dropDown.dataSource = ["Car", "Motorcycle", "Truck"]
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in
             // set value should be the value in model
             // ie : currency EG
-            self?.formItem?.valueCompletion?(item)
+            self?.formItem?.valueCompletion?(self?.items?[index].value ?? "")
             self?.field.text = item
         }
         self.backgroundColor = .clear

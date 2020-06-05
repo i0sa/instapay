@@ -12,6 +12,7 @@
 		03692BA2248B079300682EFD /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692BA1248B079300682EFD /* Invoice.swift */; };
 		03692BA4248B088F00682EFD /* FormTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692BA3248B088F00682EFD /* FormTextViewCell.swift */; };
 		03692BA6248B0D6400682EFD /* FormDropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692BA5248B0D6400682EFD /* FormDropDownCell.swift */; };
+		03692BA8248B108E00682EFD /* DropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692BA7248B108E00682EFD /* DropDownItem.swift */; };
 		0398D7BE248ADBAF006C76EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7BD248ADBAF006C76EF /* AppDelegate.swift */; };
 		0398D7C0248ADBAF006C76EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7BF248ADBAF006C76EF /* SceneDelegate.swift */; };
 		0398D7C2248ADBAF006C76EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7C1248ADBAF006C76EF /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 		03692BA1248B079300682EFD /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
 		03692BA3248B088F00682EFD /* FormTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextViewCell.swift; sourceTree = "<group>"; };
 		03692BA5248B0D6400682EFD /* FormDropDownCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDropDownCell.swift; sourceTree = "<group>"; };
+		03692BA7248B108E00682EFD /* DropDownItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownItem.swift; sourceTree = "<group>"; };
 		0398D7BA248ADBAF006C76EF /* instapay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instapay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0398D7BD248ADBAF006C76EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0398D7BF248ADBAF006C76EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				03692BA1248B079300682EFD /* Invoice.swift */,
+				03692BA7248B108E00682EFD /* DropDownItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03692BA8248B108E00682EFD /* DropDownItem.swift in Sources */,
 				0398D7E4248AE3A1006C76EF /* FormValidable.swift in Sources */,
 				03692B9D248AF74F00682EFD /* TotalPriceHeaderCell.swift in Sources */,
 				03692BA6248B0D6400682EFD /* FormDropDownCell.swift in Sources */,
