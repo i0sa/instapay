@@ -10,12 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var initialSetupViewController: PTFWInitialSetupViewController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .red
+        
         // Do any additional setup after loading the view.
     }
 
-
+    
 }
 

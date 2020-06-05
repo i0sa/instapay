@@ -12,6 +12,9 @@
 		0398D7C2248ADBAF006C76EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7C1248ADBAF006C76EF /* ViewController.swift */; };
 		0398D7C7248ADBB1006C76EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0398D7C6248ADBB1006C76EF /* Assets.xcassets */; };
 		0398D7CA248ADBB1006C76EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0398D7C8248ADBB1006C76EF /* LaunchScreen.storyboard */; };
+		0398D7D3248ADD58006C76EF /* paytabs-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0398D7D1248ADD58006C76EF /* paytabs-iOS.framework */; };
+		0398D7D4248ADD58006C76EF /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0398D7D2248ADD58006C76EF /* Resources.bundle */; };
+		3060DDCEF9A09DCE9BE2F324 /* libPods-instapay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2981398E9242F582ED038C7F /* libPods-instapay.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,12 @@
 		0398D7C6248ADBB1006C76EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0398D7C9248ADBB1006C76EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0398D7CB248ADBB1006C76EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0398D7D1248ADD58006C76EF /* paytabs-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "paytabs-iOS.framework"; sourceTree = "<group>"; };
+		0398D7D2248ADD58006C76EF /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
+		0398D7D6248ADD61006C76EF /* instapay-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "instapay-Bridging-Header.h"; sourceTree = "<group>"; };
+		13E7A56A37E1D022B984DB12 /* Pods-instapay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instapay.release.xcconfig"; path = "Target Support Files/Pods-instapay/Pods-instapay.release.xcconfig"; sourceTree = "<group>"; };
+		2981398E9242F582ED038C7F /* libPods-instapay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-instapay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9E5306307E9417E0690E7D8 /* Pods-instapay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instapay.debug.xcconfig"; path = "Target Support Files/Pods-instapay/Pods-instapay.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0398D7D3248ADD58006C76EF /* paytabs-iOS.framework in Frameworks */,
+				3060DDCEF9A09DCE9BE2F324 /* libPods-instapay.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +51,8 @@
 			children = (
 				0398D7BC248ADBAF006C76EF /* instapay */,
 				0398D7BB248ADBAF006C76EF /* Products */,
+				605525CF9776B612711AF1BE /* Pods */,
+				271514A04D92395EEF003B45 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +67,9 @@
 		0398D7BC248ADBAF006C76EF /* instapay */ = {
 			isa = PBXGroup;
 			children = (
+				0398D7D5248ADD61006C76EF /* BridgeHeader */,
+				0398D7D1248ADD58006C76EF /* paytabs-iOS.framework */,
+				0398D7D2248ADD58006C76EF /* Resources.bundle */,
 				0398D7BD248ADBAF006C76EF /* AppDelegate.swift */,
 				0398D7BF248ADBAF006C76EF /* SceneDelegate.swift */,
 				0398D7C1248ADBAF006C76EF /* ViewController.swift */,
@@ -64,6 +80,32 @@
 			path = instapay;
 			sourceTree = "<group>";
 		};
+		0398D7D5248ADD61006C76EF /* BridgeHeader */ = {
+			isa = PBXGroup;
+			children = (
+				0398D7D6248ADD61006C76EF /* instapay-Bridging-Header.h */,
+			);
+			path = BridgeHeader;
+			sourceTree = "<group>";
+		};
+		271514A04D92395EEF003B45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2981398E9242F582ED038C7F /* libPods-instapay.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		605525CF9776B612711AF1BE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E9E5306307E9417E0690E7D8 /* Pods-instapay.debug.xcconfig */,
+				13E7A56A37E1D022B984DB12 /* Pods-instapay.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +113,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0398D7CE248ADBB1006C76EF /* Build configuration list for PBXNativeTarget "instapay" */;
 			buildPhases = (
+				93C0484A59C2579FB81DFE95 /* [CP] Check Pods Manifest.lock */,
 				0398D7B6248ADBAF006C76EF /* Sources */,
 				0398D7B7248ADBAF006C76EF /* Frameworks */,
 				0398D7B8248ADBAF006C76EF /* Resources */,
+				4ABA27713258D4DD85331094 /* [CP] Embed Pods Frameworks */,
+				DAAC9854504EFCB0EE7717FC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,11 +168,71 @@
 			buildActionMask = 2147483647;
 			files = (
 				0398D7CA248ADBB1006C76EF /* LaunchScreen.storyboard in Resources */,
+				0398D7D4248ADD58006C76EF /* Resources.bundle in Resources */,
 				0398D7C7248ADBB1006C76EF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4ABA27713258D4DD85331094 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-instapay/Pods-instapay-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-instapay/Pods-instapay-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-instapay/Pods-instapay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93C0484A59C2579FB81DFE95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-instapay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAAC9854504EFCB0EE7717FC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-instapay/Pods-instapay-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-instapay/Pods-instapay-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-instapay/Pods-instapay-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0398D7B6248ADBAF006C76EF /* Sources */ = {
@@ -270,10 +375,15 @@
 		};
 		0398D7CF248ADBB1006C76EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9E5306307E9417E0690E7D8 /* Pods-instapay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3LX2WT33H2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/instapay",
+				);
 				INFOPLIST_FILE = instapay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -281,6 +391,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.i0sa.instapay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/instapay/BridgeHeader/instapay-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -288,10 +399,15 @@
 		};
 		0398D7D0248ADBB1006C76EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13E7A56A37E1D022B984DB12 /* Pods-instapay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3LX2WT33H2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/instapay",
+				);
 				INFOPLIST_FILE = instapay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -299,6 +415,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.i0sa.instapay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/instapay/BridgeHeader/instapay-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
