@@ -10,6 +10,6 @@ import UIKit
 struct FormItemUI {
     var tintColor = UIColor.red
     var keyboardType = UIKeyboardType.default
-//    var cellType: FormItemCellType?
+    var cellType: FormItemCellType?
 }
 

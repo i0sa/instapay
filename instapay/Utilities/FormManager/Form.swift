@@ -29,11 +29,16 @@ class Form {
       return (isValid, nil)
     }
     
+    init() {
+      self.configureItems()
+      self.title = "Amazing form"
+    }
+    
     private func configureItems() {
         
         // Username
         let usernameItem = FormItem(placeholder: "Enter your username")
-        //      usernameItem.UIProperties.cellType = FormItemCellType.textField
+        usernameItem.UIProperties.cellType = .textField
         usernameItem.value = self.username
         usernameItem.valueCompletion = { [weak self, weak usernameItem] value in
             self?.username = value

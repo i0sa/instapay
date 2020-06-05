@@ -8,13 +8,12 @@
 
 import Foundation
 
-class FormTextFieldTableViewCell: UITableViewCell, FormCellProtocol {
+class FormTextFieldCell: UITableViewCell, FormCellProtocol {
     lazy var field: UITextField = {
         return UITextField()
     }()
     
     var formItem: FormItem?
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,6 +22,7 @@ class FormTextFieldTableViewCell: UITableViewCell, FormCellProtocol {
     }
 
     func setupViews(){
+        self.backgroundColor = .black
         self.addSubview(field)
         self.field.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
     }
