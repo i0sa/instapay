@@ -14,17 +14,27 @@ class ViewController: UIViewController {
     lazy var tableView: UITableView = {
         let table = UITableView()
         table.backgroundColor = .clear
+        table.separatorStyle = .none
+        table.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         return table
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
+        self.view.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.9490196078, blue: 0.9607843137, alpha: 1)
         setupViews()
-        // Do any additional setup after loading the view.
+
+    }
+    func registerCells(){
+        tableView.registerCell(cellClass: TotalPriceHeaderCell.self)
     }
 
     func setupViews() {
+        // register cells related to form builder
         FormItemCellType.registerCells(for: tableView)
+        // register internal cells
+        registerCells()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = self.view.bounds
@@ -36,7 +46,9 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
-
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return tableView.dequeue() as TotalPriceHeaderCell
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.form.formItems[indexPath.row]
         let cell: UITableViewCell

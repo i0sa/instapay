@@ -17,12 +17,6 @@ enum FormItemCellType {
 //      tableView.register(cellType: FormTextViewTableViewCell.self)
     }
     
-    /// Correctly dequeue the UITableViewCell according to the current cell type
-    ///
-    /// - Parameters:
-    ///   - tableView: TableView where cells previously registered
-    ///   - indexPath: indexPath where dequeue
-    /// - Returns: a non-nullable UITableViewCell dequeued
     func dequeueCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
       
       let cell: UITableViewCell

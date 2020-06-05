@@ -4,6 +4,8 @@
 //
 //  Created by Osama on 6/5/20.
 //  Copyright © 2020 Osama Gamal. All rights reserved.
+//  Rights to myself, I wrote this personally back in time, and available in my repo..
+//  https://github.com/i0sa/CodezillaFiles/blob/master/GenericTableViewCells/UITableView%2BExtentions.swift
 //
 
 import Foundation

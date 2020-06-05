@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03692B9D248AF74F00682EFD /* TotalPriceHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692B9C248AF74F00682EFD /* TotalPriceHeaderCell.swift */; };
 		0398D7BE248ADBAF006C76EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7BD248ADBAF006C76EF /* AppDelegate.swift */; };
 		0398D7C0248ADBAF006C76EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7BF248ADBAF006C76EF /* SceneDelegate.swift */; };
 		0398D7C2248ADBAF006C76EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7C1248ADBAF006C76EF /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03692B9C248AF74F00682EFD /* TotalPriceHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPriceHeaderCell.swift; sourceTree = "<group>"; };
 		0398D7BA248ADBAF006C76EF /* instapay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instapay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0398D7BD248ADBAF006C76EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0398D7BF248ADBAF006C76EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03692B9B248AF73C00682EFD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				03692B9C248AF74F00682EFD /* TotalPriceHeaderCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		0398D7B1248ADBAF006C76EF = {
 			isa = PBXGroup;
 			children = (
@@ -87,9 +97,9 @@
 				0398D7D1248ADD58006C76EF /* paytabs-iOS.framework */,
 				0398D7D2248ADD58006C76EF /* Resources.bundle */,
 				0398D7EF248AE91B006C76EF /* Extensions */,
-				0398D7E7248AE6AB006C76EF /* Utilities */,
 				0398D7D9248AE20E006C76EF /* Common */,
 				0398D7DA248AE24A006C76EF /* Models */,
+				0398D7E7248AE6AB006C76EF /* Utilities */,
 				0398D7D7248AE1FA006C76EF /* Scenes */,
 				0398D7CB248ADBB1006C76EF /* Info.plist */,
 			);
@@ -116,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				0398D7C1248ADBAF006C76EF /* ViewController.swift */,
+				03692B9B248AF73C00682EFD /* Cells */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -343,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0398D7E4248AE3A1006C76EF /* FormValidable.swift in Sources */,
+				03692B9D248AF74F00682EFD /* TotalPriceHeaderCell.swift in Sources */,
 				0398D7EE248AE73D006C76EF /* FormTextFieldCell.swift in Sources */,
 				0398D7E2248AE374006C76EF /* FormItem.swift in Sources */,
 				0398D7F3248AE9E7006C76EF /* FormItemCellType.swift in Sources */,
