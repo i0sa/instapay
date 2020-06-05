@@ -20,4 +20,8 @@ target 'instapay' do
   # In case if you are using OCR version 
   pod 'PayCardsRecognizer'
 
+  
+  
+  pod 'DropDown'
+  
 end

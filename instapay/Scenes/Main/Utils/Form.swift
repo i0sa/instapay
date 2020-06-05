@@ -47,7 +47,7 @@ class Form {
 
         // textview
         let addressItem = FormItem(mainTitle: "textView", placeholder: "Enter your username")
-        addressItem.UIProperties.cellType = .textView
+        addressItem.UIProperties.cellType = .dropDown
         addressItem.value = self.mail
         addressItem.valueCompletion = { [weak self, weak addressItem] value in
             self?.mail = value

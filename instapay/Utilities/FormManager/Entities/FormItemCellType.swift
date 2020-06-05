@@ -12,9 +12,12 @@ import UIKit
 enum FormItemCellType {
     case textField
     case textView
+    case dropDown
+    
     static func registerCells(for tableView: UITableView) {
         tableView.registerCell(cellClass: FormTextFieldCell.self)
         tableView.registerCell(cellClass: FormTextViewCell.self)
+        tableView.registerCell(cellClass: FormDropDownCell.self)
     }
     
     func dequeueCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
@@ -26,6 +29,8 @@ enum FormItemCellType {
         cell = tableView.dequeue() as FormTextViewCell
       case .textField:
         cell = tableView.dequeue() as FormTextFieldCell
+      case .dropDown:
+        cell = tableView.dequeue() as FormDropDownCell
       }
       
       return cell
