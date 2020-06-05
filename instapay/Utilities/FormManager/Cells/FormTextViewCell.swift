@@ -1,5 +1,5 @@
 //
-//  FormTextFieldCell.swift
+//  FormTextViewCell.swift
 //  instapay
 //
 //  Created by Osama on 6/5/20.
@@ -8,15 +8,15 @@
 
 import Foundation
 
-class FormTextFieldCell: UITableViewCell, FormCellProtocol {
-    lazy var field: UITextField = {
-        let textField = UITextField()
+class FormTextViewCell: UITableViewCell, FormCellProtocol, UITextViewDelegate {
+    lazy var textView: UITextView = {
+        let textV = UITextView()
 //        textField.placeholder = "heyyy"
-        textField.layer.masksToBounds = true
-        textField.borderStyle = .none
-        textField.backgroundColor = .clear
+        textV.delegate = self
+        textV.layer.masksToBounds = true
+        textV.backgroundColor = .clear
         
-        return textField
+        return textV
     }()
     
     lazy var fieldContainer: UIView = {
@@ -31,7 +31,7 @@ class FormTextFieldCell: UITableViewCell, FormCellProtocol {
     lazy var topLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.text = "Total Price"
+//        label.text = "Total Price"
         label.backgroundColor = .clear
         label.textColor = #colorLiteral(red: 0.2533827424, green: 0.2586194277, blue: 0.264210999, alpha: 1)
         label.font = UIFont.init(name: "Avenir-Heavy", size: 17)
@@ -50,12 +50,12 @@ class FormTextFieldCell: UITableViewCell, FormCellProtocol {
     func setupViews(){
         self.backgroundColor = .clear
         selectionStyle = .none
-        self.field.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
+//        self.textView.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
 
         self.addSubview(fieldContainer)
-        fieldContainer.addSubview(field)
+        fieldContainer.addSubview(textView)
         self.addSubview(topLabel)
-        field.translatesAutoresizingMaskIntoConstraints = false
+        textView.translatesAutoresizingMaskIntoConstraints = false
         topLabel.translatesAutoresizingMaskIntoConstraints = false
         fieldContainer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -69,24 +69,26 @@ class FormTextFieldCell: UITableViewCell, FormCellProtocol {
             fieldContainer.leadingAnchor.constraint(equalTo: topLabel.leadingAnchor),
             fieldContainer.trailingAnchor.constraint(equalTo: topLabel.trailingAnchor),
             fieldContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
-            fieldContainer.heightAnchor.constraint(equalToConstant: 60),
+            fieldContainer.heightAnchor.constraint(equalToConstant: 80),
 
             // field itself
-            field.topAnchor.constraint(equalTo: fieldContainer.topAnchor, constant: 5),
-            field.leadingAnchor.constraint(equalTo: fieldContainer.leadingAnchor, constant: 20),
-            field.trailingAnchor.constraint(equalTo: fieldContainer.trailingAnchor, constant: -20),
-            field.bottomAnchor.constraint(equalTo: fieldContainer.bottomAnchor, constant: -5)
+            textView.topAnchor.constraint(equalTo: fieldContainer.topAnchor, constant: 5),
+            textView.leadingAnchor.constraint(equalTo: fieldContainer.leadingAnchor, constant: 13),
+            textView.trailingAnchor.constraint(equalTo: fieldContainer.trailingAnchor, constant: -13),
+            textView.bottomAnchor.constraint(equalTo: fieldContainer.bottomAnchor, constant: -5)
         
         ])
     }
     
-    @objc func textFieldDidChanged(_ textField: UITextField) {
-        self.formItem?.valueCompletion?(textField.text)
-    }
 
+
+    func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
+        self.formItem?.valueCompletion?(textView.text)
+    }
+    
     func configure(with formItem: FormItem) {
         self.formItem = formItem
-        self.field.placeholder = formItem.placeholder
+//        self.field.placeholder = formItem.placeholder
         self.topLabel.text = formItem.mainTitle
         let bgColor: UIColor = self.formItem?.isValid  == false ? .red : #colorLiteral(red: 0.8941176471, green: 0.8980392157, blue: 0.9098039216, alpha: 1)
         self.fieldContainer.layer.borderColor = bgColor.cgColor

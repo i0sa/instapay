@@ -37,7 +37,7 @@ class Form {
     private func configureItems() {
         
         // Username
-        let usernameItem = FormItem(placeholder: "Enter your username")
+        let usernameItem = FormItem(mainTitle: "Username", placeholder: "Enter your username")
         usernameItem.UIProperties.cellType = .textField
         usernameItem.value = self.username
         usernameItem.valueCompletion = { [weak self, weak usernameItem] value in
@@ -45,8 +45,17 @@ class Form {
             usernameItem?.value = value
         }
 
+        // textview
+        let addressItem = FormItem(mainTitle: "textView", placeholder: "Enter your username")
+        addressItem.UIProperties.cellType = .textView
+        addressItem.value = self.mail
+        addressItem.valueCompletion = { [weak self, weak addressItem] value in
+            self?.mail = value
+            addressItem?.value = value
+        }
+
         
         // set all
-        self.formItems = [usernameItem]
+        self.formItems = [usernameItem, addressItem]
     }
 }

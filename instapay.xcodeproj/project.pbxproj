@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		03692B9D248AF74F00682EFD /* TotalPriceHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692B9C248AF74F00682EFD /* TotalPriceHeaderCell.swift */; };
+		03692B9F248B055000682EFD /* CheckoutFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692B9E248B055000682EFD /* CheckoutFooterCell.swift */; };
+		03692BA2248B079300682EFD /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692BA1248B079300682EFD /* Invoice.swift */; };
+		03692BA4248B088F00682EFD /* FormTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692BA3248B088F00682EFD /* FormTextViewCell.swift */; };
 		0398D7BE248ADBAF006C76EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7BD248ADBAF006C76EF /* AppDelegate.swift */; };
 		0398D7C0248ADBAF006C76EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7BF248ADBAF006C76EF /* SceneDelegate.swift */; };
 		0398D7C2248ADBAF006C76EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7C1248ADBAF006C76EF /* ViewController.swift */; };
@@ -28,6 +31,9 @@
 
 /* Begin PBXFileReference section */
 		03692B9C248AF74F00682EFD /* TotalPriceHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPriceHeaderCell.swift; sourceTree = "<group>"; };
+		03692B9E248B055000682EFD /* CheckoutFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFooterCell.swift; sourceTree = "<group>"; };
+		03692BA1248B079300682EFD /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
+		03692BA3248B088F00682EFD /* FormTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextViewCell.swift; sourceTree = "<group>"; };
 		0398D7BA248ADBAF006C76EF /* instapay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instapay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0398D7BD248ADBAF006C76EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0398D7BF248ADBAF006C76EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,8 +74,17 @@
 			isa = PBXGroup;
 			children = (
 				03692B9C248AF74F00682EFD /* TotalPriceHeaderCell.swift */,
+				03692B9E248B055000682EFD /* CheckoutFooterCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		03692BA0248B070100682EFD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0398D7E5248AE45A006C76EF /* Form.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		0398D7B1248ADBAF006C76EF = {
@@ -125,6 +140,7 @@
 		0398D7D8248AE204006C76EF /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				03692BA0248B070100682EFD /* Utils */,
 				0398D7C1248ADBAF006C76EF /* ViewController.swift */,
 				03692B9B248AF73C00682EFD /* Cells */,
 			);
@@ -145,6 +161,7 @@
 		0398D7DA248AE24A006C76EF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				03692BA1248B079300682EFD /* Invoice.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,7 +190,6 @@
 				0398D7EC248AE72F006C76EF /* Cells */,
 				0398D7E9248AE6CB006C76EF /* Protocols */,
 				0398D7DD248AE263006C76EF /* Entities */,
-				0398D7E5248AE45A006C76EF /* Form.swift */,
 			);
 			path = FormManager;
 			sourceTree = "<group>";
@@ -191,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				0398D7ED248AE73D006C76EF /* FormTextFieldCell.swift */,
+				03692BA3248B088F00682EFD /* FormTextViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -356,8 +373,11 @@
 				0398D7E4248AE3A1006C76EF /* FormValidable.swift in Sources */,
 				03692B9D248AF74F00682EFD /* TotalPriceHeaderCell.swift in Sources */,
 				0398D7EE248AE73D006C76EF /* FormTextFieldCell.swift in Sources */,
+				03692BA2248B079300682EFD /* Invoice.swift in Sources */,
+				03692B9F248B055000682EFD /* CheckoutFooterCell.swift in Sources */,
 				0398D7E2248AE374006C76EF /* FormItem.swift in Sources */,
 				0398D7F3248AE9E7006C76EF /* FormItemCellType.swift in Sources */,
+				03692BA4248B088F00682EFD /* FormTextViewCell.swift in Sources */,
 				0398D7C2248ADBAF006C76EF /* ViewController.swift in Sources */,
 				0398D7DC248AE260006C76EF /* FormItemUI.swift in Sources */,
 				0398D7F1248AE92B006C76EF /* UITableView+Extensions.swift in Sources */,

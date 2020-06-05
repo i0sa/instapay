@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     }
     func registerCells(){
         tableView.registerCell(cellClass: TotalPriceHeaderCell.self)
+        tableView.registerCell(cellClass: CheckoutFooterCell.self)
     }
 
     func setupViews() {
@@ -41,6 +42,11 @@ class ViewController: UIViewController {
         self.view.addSubview(tableView)
         
     }
+    
+    @objc func didPressProceed(_ sender: UIButton){
+        self.form.isValid()
+        self.tableView.reloadData()
+    }
 }
 
 
@@ -49,13 +55,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return tableView.dequeue() as TotalPriceHeaderCell
     }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let cell = tableView.dequeue() as CheckoutFooterCell
+        cell.button.addTarget(self, action: #selector(didPressProceed(_:)), for: .touchUpInside)
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.form.formItems[indexPath.row]
         let cell: UITableViewCell
         if let cellClass = item.UIProperties.cellType {
             cell = cellClass.dequeueCell(for: tableView, at: indexPath)
         } else {
-            cell = UITableViewCell() //or anything you want
+            cell = UITableViewCell()
         }
         
         if let formUpdatableCell = cell as? FormCellProtocol {
@@ -68,10 +81,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.form.formItems.count
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
     }
 
 }

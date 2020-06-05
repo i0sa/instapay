@@ -14,7 +14,7 @@ enum FormItemCellType {
     case textView
     static func registerCells(for tableView: UITableView) {
         tableView.registerCell(cellClass: FormTextFieldCell.self)
-//      tableView.register(cellType: FormTextViewTableViewCell.self)
+        tableView.registerCell(cellClass: FormTextViewCell.self)
     }
     
     func dequeueCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
@@ -23,7 +23,7 @@ enum FormItemCellType {
       
       switch self {
       case .textView:
-        cell = tableView.dequeue() as FormTextFieldCell
+        cell = tableView.dequeue() as FormTextViewCell
       case .textField:
         cell = tableView.dequeue() as FormTextFieldCell
       }

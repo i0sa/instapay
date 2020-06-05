@@ -15,7 +15,7 @@ class TotalPriceHeaderCell: UITableViewHeaderFooterView {
         label.text = "Total Price"
         label.backgroundColor = .clear
         label.textColor = #colorLiteral(red: 0.4784313725, green: 0.4862745098, blue: 0.4941176471, alpha: 1)
-        label.font = UIFont.init(name: "Avenir-Heavy", size: 15)
+        label.font = UIFont.init(name: "Avenir-Heavy", size: 18)
         return label
     }()
 
@@ -25,7 +25,7 @@ class TotalPriceHeaderCell: UITableViewHeaderFooterView {
         label.backgroundColor = .clear
         label.numberOfLines = 1
         label.textColor = #colorLiteral(red: 0.3294117647, green: 0.4392156863, blue: 0.9450980392, alpha: 1)
-        label.font = UIFont.init(name: "HelveticaNeue-UltraLight", size: 60)
+        label.font = UIFont.init(name: "HelveticaNeue-UltraLight", size: 65)
         return label
     }()
     
@@ -50,13 +50,11 @@ class TotalPriceHeaderCell: UITableViewHeaderFooterView {
         self.addSubview(fullPrice)
         NSLayoutConstraint.activate([
             topLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            topLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50),
-//            topLabel.heightAnchor.constraint(equalToConstant: 20),
-
+            topLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
 
             fullPrice.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
             fullPrice.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
-            fullPrice.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50),
+            fullPrice.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
         ])
     }

@@ -10,33 +10,24 @@ import Foundation
 
 class FormItem {
     var value: String?
+    var mainTitle = ""
     var placeholder = ""
+    
+    // i may need to use indexpath to animate the view at any point from TableView..s
     var indexPath: IndexPath?
     var valueCompletion: ((String?) -> Void)?
     var UIProperties = FormItemUI()
-    
-    init(placeholder: String, value: String? = nil) {
+    var isValid = true
+    var isMandatory = true
+    init(mainTitle: String, placeholder: String, value: String? = nil) {
         self.placeholder = placeholder
+        self.mainTitle = mainTitle
         self.value = value
     }
 
 }
 
 extension FormItem: FormValidable {
-    var isValid: Bool {
-        get {
-            return true
-        }
-        set {}
-    }
-    
-    var isMandatory: Bool{
-        get {
-            return true
-        }
-        set {}
-    }
-    
 
     func checkValidity() {
         if self.isMandatory {
