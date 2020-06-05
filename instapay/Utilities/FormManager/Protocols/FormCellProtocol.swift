@@ -9,5 +9,5 @@
 import Foundation
 protocol FormCellProtocol {
     var formItem: FormItem? { get set }
-    func update(with formItem: FormItem)
+    func configure(with formItem: FormItem)
 }

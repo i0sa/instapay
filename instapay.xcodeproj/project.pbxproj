@@ -20,6 +20,7 @@
 		0398D7E6248AE45A006C76EF /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7E5248AE45A006C76EF /* Form.swift */; };
 		0398D7EB248AE6FC006C76EF /* FormCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7EA248AE6FC006C76EF /* FormCellProtocol.swift */; };
 		0398D7EE248AE73D006C76EF /* FormTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7ED248AE73D006C76EF /* FormTextFieldCell.swift */; };
+		0398D7F1248AE92B006C76EF /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7F0248AE92B006C76EF /* UITableView+Extensions.swift */; };
 		3060DDCEF9A09DCE9BE2F324 /* libPods-instapay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2981398E9242F582ED038C7F /* libPods-instapay.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		0398D7E5248AE45A006C76EF /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		0398D7EA248AE6FC006C76EF /* FormCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCellProtocol.swift; sourceTree = "<group>"; };
 		0398D7ED248AE73D006C76EF /* FormTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextFieldCell.swift; sourceTree = "<group>"; };
+		0398D7F0248AE92B006C76EF /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		13E7A56A37E1D022B984DB12 /* Pods-instapay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instapay.release.xcconfig"; path = "Target Support Files/Pods-instapay/Pods-instapay.release.xcconfig"; sourceTree = "<group>"; };
 		2981398E9242F582ED038C7F /* libPods-instapay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-instapay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E5306307E9417E0690E7D8 /* Pods-instapay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instapay.debug.xcconfig"; path = "Target Support Files/Pods-instapay/Pods-instapay.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				0398D7D5248ADD61006C76EF /* BridgeHeader */,
 				0398D7D1248ADD58006C76EF /* paytabs-iOS.framework */,
 				0398D7D2248ADD58006C76EF /* Resources.bundle */,
+				0398D7EF248AE91B006C76EF /* Extensions */,
 				0398D7E7248AE6AB006C76EF /* Utilities */,
 				0398D7D9248AE20E006C76EF /* Common */,
 				0398D7DA248AE24A006C76EF /* Models */,
@@ -176,6 +179,14 @@
 				0398D7ED248AE73D006C76EF /* FormTextFieldCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		0398D7EF248AE91B006C76EF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0398D7F0248AE92B006C76EF /* UITableView+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		271514A04D92395EEF003B45 /* Frameworks */ = {
@@ -333,6 +344,7 @@
 				0398D7E2248AE374006C76EF /* FormItem.swift in Sources */,
 				0398D7C2248ADBAF006C76EF /* ViewController.swift in Sources */,
 				0398D7DC248AE260006C76EF /* FormItemUI.swift in Sources */,
+				0398D7F1248AE92B006C76EF /* UITableView+Extensions.swift in Sources */,
 				0398D7BE248ADBAF006C76EF /* AppDelegate.swift in Sources */,
 				0398D7E6248AE45A006C76EF /* Form.swift in Sources */,
 				0398D7C0248ADBAF006C76EF /* SceneDelegate.swift in Sources */,

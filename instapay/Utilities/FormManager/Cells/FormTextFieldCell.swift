@@ -15,11 +15,13 @@ class FormTextFieldTableViewCell: UITableViewCell, FormCellProtocol {
     
     var formItem: FormItem?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupViews()
+
+    }
+
     func setupViews(){
         self.addSubview(field)
         self.field.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
@@ -29,11 +31,14 @@ class FormTextFieldTableViewCell: UITableViewCell, FormCellProtocol {
         self.formItem?.valueCompletion?(textField.text)
     }
 
-    func update(with formItem: FormItem) {
+    func configure(with formItem: FormItem) {
         self.formItem = formItem
         
         let bgColor: UIColor = self.formItem?.isValid  == false ? .red : .white
-        
+        self.field.layer.backgroundColor = bgColor.cgColor
     }
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
