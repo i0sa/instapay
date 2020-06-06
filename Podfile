@@ -24,5 +24,6 @@ target 'instapay' do
   
   pod 'DropDown'
   pod 'KeychainSwift', '~> 19.0'
+  pod 'Alamofire', '4.9'
 
 end

@@ -30,6 +30,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.9490196078, blue: 0.9607843137, alpha: 1)
         setupViews()
+        
+        
 
     }
     func registerCells(){
@@ -52,15 +54,26 @@ class ViewController: UIViewController {
     }
     
     @objc func didPressProceed(_ sender: UIButton){
-        self.view.endEditing(true)
-        if(self.form.isValid().0){
-            let view = PaymentViewController(invoice: form.invoice)
-            view.modalPresentationStyle = .overFullScreen
-            view.delegate = self
-            self.present(view, animated: true, completion: nil)
+        if(userManager.isTokenizable){
+            if let user = userManager.user{
+                
+            }
+        } else {
+            self.view.endEditing(true)
+            if(self.form.isValid().0){
+                let view = PaymentViewController(invoice: form.invoice)
+                view.modalPresentationStyle = .overFullScreen
+                view.delegate = self
+                self.present(view, animated: true, completion: nil)
+            }
+            //        print(form.invoice)
+            self.tableView.reloadData()
         }
-//        print(form.invoice)
-        self.tableView.reloadData()
+    }
+    
+    func startTokenizableRequest(user: PTTokenizableUser, invoice: Invoice){
+        let handler = TokenizableRequestHandler(delegate: self, invoice: invoice, user: user)
+        handler.start()
     }
     
     func setupLogoutButtonIfNeeded(){

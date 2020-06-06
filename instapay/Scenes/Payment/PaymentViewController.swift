@@ -13,8 +13,15 @@ class PaymentViewController: UIViewController {
     weak var delegate: PaymentStateDelegate?
     var invoice: Invoice
     let userManager: UserManager
-    
     var initialSetupViewController: PTFWInitialSetupViewController!
+    
+    init(invoice: Invoice, userManager: UserManager = UserManager()) {
+        self.invoice = invoice
+        self.userManager = userManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    
     lazy var loadingIndicator: UIActivityIndicatorView = {
         let loading = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         loading.hidesWhenStopped = true
@@ -97,12 +104,7 @@ class PaymentViewController: UIViewController {
 
     }
     
-    init(invoice: Invoice, userManager: UserManager = UserManager()) {
-        self.invoice = invoice
-        self.userManager = userManager
-        super.init(nibName: nil, bundle: nil)
-    }
-    
+
     func setupViews(){
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(loadingIndicator)
