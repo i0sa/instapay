@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		031C49B3248B13C200054ECE /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031C49B2248B13C200054ECE /* Country.swift */; };
+		031C49B6248B18C500054ECE /* CountriesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031C49B5248B18C500054ECE /* CountriesHelper.swift */; };
+		031C49B8248B18CB00054ECE /* CurrenciesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031C49B7248B18CB00054ECE /* CurrenciesHelper.swift */; };
+		031C49BA248B18EE00054ECE /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031C49B9248B18EE00054ECE /* Currency.swift */; };
 		03692B9D248AF74F00682EFD /* TotalPriceHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692B9C248AF74F00682EFD /* TotalPriceHeaderCell.swift */; };
 		03692B9F248B055000682EFD /* CheckoutFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692B9E248B055000682EFD /* CheckoutFooterCell.swift */; };
 		03692BA2248B079300682EFD /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692BA1248B079300682EFD /* Invoice.swift */; };
@@ -24,7 +27,7 @@
 		0398D7E0248AE35D006C76EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0398D7C8248ADBB1006C76EF /* LaunchScreen.storyboard */; };
 		0398D7E2248AE374006C76EF /* FormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7E1248AE374006C76EF /* FormItem.swift */; };
 		0398D7E4248AE3A1006C76EF /* FormValidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7E3248AE3A1006C76EF /* FormValidable.swift */; };
-		0398D7E6248AE45A006C76EF /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7E5248AE45A006C76EF /* Form.swift */; };
+		0398D7E6248AE45A006C76EF /* CheckoutForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7E5248AE45A006C76EF /* CheckoutForm.swift */; };
 		0398D7EB248AE6FC006C76EF /* FormCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7EA248AE6FC006C76EF /* FormCellProtocol.swift */; };
 		0398D7EE248AE73D006C76EF /* FormTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7ED248AE73D006C76EF /* FormTextFieldCell.swift */; };
 		0398D7F1248AE92B006C76EF /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0398D7F0248AE92B006C76EF /* UITableView+Extensions.swift */; };
@@ -34,6 +37,9 @@
 
 /* Begin PBXFileReference section */
 		031C49B2248B13C200054ECE /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		031C49B5248B18C500054ECE /* CountriesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesHelper.swift; sourceTree = "<group>"; };
+		031C49B7248B18CB00054ECE /* CurrenciesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesHelper.swift; sourceTree = "<group>"; };
+		031C49B9248B18EE00054ECE /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		03692B9C248AF74F00682EFD /* TotalPriceHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPriceHeaderCell.swift; sourceTree = "<group>"; };
 		03692B9E248B055000682EFD /* CheckoutFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFooterCell.swift; sourceTree = "<group>"; };
 		03692BA1248B079300682EFD /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
@@ -53,7 +59,7 @@
 		0398D7DB248AE260006C76EF /* FormItemUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemUI.swift; sourceTree = "<group>"; };
 		0398D7E1248AE374006C76EF /* FormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItem.swift; sourceTree = "<group>"; };
 		0398D7E3248AE3A1006C76EF /* FormValidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidable.swift; sourceTree = "<group>"; };
-		0398D7E5248AE45A006C76EF /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		0398D7E5248AE45A006C76EF /* CheckoutForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutForm.swift; sourceTree = "<group>"; };
 		0398D7EA248AE6FC006C76EF /* FormCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCellProtocol.swift; sourceTree = "<group>"; };
 		0398D7ED248AE73D006C76EF /* FormTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextFieldCell.swift; sourceTree = "<group>"; };
 		0398D7F0248AE92B006C76EF /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
@@ -76,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		031C49B4248B18BA00054ECE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				031C49B5248B18C500054ECE /* CountriesHelper.swift */,
+				031C49B7248B18CB00054ECE /* CurrenciesHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		03692B9B248AF73C00682EFD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,7 +103,7 @@
 		03692BA0248B070100682EFD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0398D7E5248AE45A006C76EF /* Form.swift */,
+				0398D7E5248AE45A006C76EF /* CheckoutForm.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -118,6 +133,7 @@
 				0398D7D1248ADD58006C76EF /* paytabs-iOS.framework */,
 				0398D7D2248ADD58006C76EF /* Resources.bundle */,
 				0398D7EF248AE91B006C76EF /* Extensions */,
+				031C49B4248B18BA00054ECE /* Helpers */,
 				0398D7D9248AE20E006C76EF /* Common */,
 				0398D7DA248AE24A006C76EF /* Models */,
 				0398D7E7248AE6AB006C76EF /* Utilities */,
@@ -169,6 +185,7 @@
 			children = (
 				03692BA1248B079300682EFD /* Invoice.swift */,
 				031C49B2248B13C200054ECE /* Country.swift */,
+				031C49B9248B18EE00054ECE /* Currency.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -383,6 +400,7 @@
 				0398D7E4248AE3A1006C76EF /* FormValidable.swift in Sources */,
 				03692B9D248AF74F00682EFD /* TotalPriceHeaderCell.swift in Sources */,
 				03692BA6248B0D6400682EFD /* FormDropDownCell.swift in Sources */,
+				031C49B8248B18CB00054ECE /* CurrenciesHelper.swift in Sources */,
 				0398D7EE248AE73D006C76EF /* FormTextFieldCell.swift in Sources */,
 				03692BA2248B079300682EFD /* Invoice.swift in Sources */,
 				03692B9F248B055000682EFD /* CheckoutFooterCell.swift in Sources */,
@@ -390,11 +408,13 @@
 				0398D7F3248AE9E7006C76EF /* FormItemCellType.swift in Sources */,
 				03692BA4248B088F00682EFD /* FormTextViewCell.swift in Sources */,
 				031C49B3248B13C200054ECE /* Country.swift in Sources */,
+				031C49BA248B18EE00054ECE /* Currency.swift in Sources */,
 				0398D7C2248ADBAF006C76EF /* ViewController.swift in Sources */,
 				0398D7DC248AE260006C76EF /* FormItemUI.swift in Sources */,
 				0398D7F1248AE92B006C76EF /* UITableView+Extensions.swift in Sources */,
 				0398D7BE248ADBAF006C76EF /* AppDelegate.swift in Sources */,
-				0398D7E6248AE45A006C76EF /* Form.swift in Sources */,
+				031C49B6248B18C500054ECE /* CountriesHelper.swift in Sources */,
+				0398D7E6248AE45A006C76EF /* CheckoutForm.swift in Sources */,
 				0398D7C0248ADBAF006C76EF /* SceneDelegate.swift in Sources */,
 				0398D7EB248AE6FC006C76EF /* FormCellProtocol.swift in Sources */,
 			);

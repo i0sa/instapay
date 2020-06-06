@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let form = Form()
+    let form = CheckoutForm()
     
     lazy var tableView: UITableView = {
         let table = UITableView()

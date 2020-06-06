@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Form {
+class CheckoutForm {
     var formItems = [FormItem]()
     
     var title: String?
 
     var username: String?
-    var mail: String?
+    var currency: String?
     var phoneNumber: String?
     
     func isValid() -> (Bool, String?) {
@@ -39,6 +39,7 @@ class Form {
         // Username
         let usernameItem = FormItem(mainTitle: "Username", placeholder: "Enter your username")
         usernameItem.UIProperties.cellType = .textField
+        usernameItem.UIProperties.keyboardType = .numberPad
         usernameItem.value = self.username
         usernameItem.valueCompletion = { [weak self, weak usernameItem] value in
             self?.username = value
@@ -46,17 +47,18 @@ class Form {
         }
 
         // textview
-        let addressItem = FormItem(mainTitle: "textView", placeholder: "Enter your username")
-        let items = [Country(title: "heYww", value:"k"), Country(title: "heY", value:"k")]
-        addressItem.UIProperties.cellType = .dropDown(items: items)
-        addressItem.value = self.mail
-        addressItem.valueCompletion = { [weak self, weak addressItem] value in
-            self?.mail = value
-            addressItem?.value = value
+        let currencyItem = FormItem(mainTitle: "Currency", placeholder: "Select your favorite currency")
+        let currencies = CurrenciesHelper.currencies()
+//        let items = [Country(title: "heYww", value:"k"), Country(title: "heY", value:"k")]
+        currencyItem.UIProperties.cellType = .dropDown(items: currencies)
+        currencyItem.value = self.currency
+        currencyItem.valueCompletion = { [weak self, weak currencyItem] value in
+            self?.currency = value
+            currencyItem?.value = value
         }
 
         
         // set all
-        self.formItems = [usernameItem, addressItem]
+        self.formItems = [usernameItem, currencyItem]
     }
 }
