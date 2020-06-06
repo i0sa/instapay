@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PTTokenizableUser {
+struct PTTokenizableUser: Codable {
     var firstName:String?
     var lastName:String?
     var email: String?

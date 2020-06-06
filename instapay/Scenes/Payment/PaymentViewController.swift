@@ -12,7 +12,8 @@ import UIKit
 class PaymentViewController: UIViewController {
     weak var delegate: PaymentStateDelegate?
     var invoice: Invoice
-
+    let userManager: UserManager
+    
     var initialSetupViewController: PTFWInitialSetupViewController!
     lazy var loadingIndicator: UIActivityIndicatorView = {
         let loading = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
@@ -68,15 +69,18 @@ class PaymentViewController: UIViewController {
             self?.dismiss(animated: true, completion: nil)
         }
         
-        self.initialSetupViewController.didReceiveFinishTransactionCallback = {(responseCode, result, transactionID, tokenizedCustomerEmail, tokenizedCustomerPassword, token, transactionState) in
+        self.initialSetupViewController.didReceiveFinishTransactionCallback = { [weak self] (responseCode, result, transactionID, tokenizedCustomerEmail, tokenizedCustomerPassword, token, transactionState) in
             
             let successCodes = [100, 111, 112, 113, 115, 116]
             if(successCodes.contains(Int(responseCode))){
-                self.delegate?.paymentStateDidChangeTo(.success(message: result))
+                if(tokenizedCustomerEmail.count > 0){
+                    self?.userManager.storeUserData(firstName: self?.invoice.firstName ?? "", lastName: self?.invoice.lastName ?? "", email: tokenizedCustomerEmail, password: tokenizedCustomerPassword, token: token)
+                }
+                self?.delegate?.paymentStateDidChangeTo(.success(message: result))
             } else {
-                self.delegate?.paymentStateDidChangeTo(.fail(reason: result))
+                self?.delegate?.paymentStateDidChangeTo(.fail(reason: result))
             }
-            self.dismiss(animated: true, completion: nil)
+            self?.dismiss(animated: true, completion: nil)
             print("Response Code: \(responseCode)")
             print("Response Result: \(result)")
             // store in keychain
@@ -93,8 +97,9 @@ class PaymentViewController: UIViewController {
 
     }
     
-    init(invoice: Invoice) {
+    init(invoice: Invoice, userManager: UserManager = UserManager()) {
         self.invoice = invoice
+        self.userManager = userManager
         super.init(nibName: nil, bundle: nil)
     }
     
