@@ -55,13 +55,17 @@ class ViewController: UIViewController {
     
     @objc func didPressProceed(_ sender: UIButton){
         if(userManager.isTokenizable){
-            if let user = userManager.user{
-                
+            if let invoice = userManager.lastInvoice{
+                let view = PaymentViewController(invoice: invoice, userManager: userManager)
+                view.modalPresentationStyle = .overFullScreen
+                view.delegate = self
+                self.present(view, animated: true, completion: nil)
             }
         } else {
             self.view.endEditing(true)
             if(self.form.isValid().0){
-                let view = PaymentViewController(invoice: form.invoice)
+                userManager.storeInvoice(invoice: form.invoice)
+                let view = PaymentViewController(invoice: form.invoice, userManager: userManager)
                 view.modalPresentationStyle = .overFullScreen
                 view.delegate = self
                 self.present(view, animated: true, completion: nil)
@@ -70,12 +74,7 @@ class ViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-    
-    func startTokenizableRequest(user: PTTokenizableUser, invoice: Invoice){
-        let handler = TokenizableRequestHandler(delegate: self, invoice: invoice, user: user)
-        handler.start()
-    }
-    
+        
     func setupLogoutButtonIfNeeded(){
         if(userManager.isTokenizable){
         let logout = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(didPressLogout(_:)))

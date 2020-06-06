@@ -13,11 +13,15 @@ class PaymentViewController: UIViewController {
     weak var delegate: PaymentStateDelegate?
     var invoice: Invoice
     let userManager: UserManager
+    var network: NetworkClient
+
+    
     var initialSetupViewController: PTFWInitialSetupViewController!
     
-    init(invoice: Invoice, userManager: UserManager = UserManager()) {
+    init(invoice: Invoice, userManager: UserManager = UserManager(), network: NetworkClient = NetworkClient()) {
         self.invoice = invoice
         self.userManager = userManager
+        self.network = network
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -32,6 +36,30 @@ class PaymentViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         setupViews()
+        
+        if(userManager.isTokenizable){
+            tokenizableTransactionHandler()
+        } else {
+            normalTransactionHandler()
+        }
+    }
+    
+    func tokenizableTransactionHandler(){
+        if let user = userManager.user {
+            loadingIndicator.startAnimating()
+            network.performRequest(TokenizableResponse.self, router: .TokenizableTransaction(invoice: invoice, TokenizableUser: user), success: { [weak self] (data) in
+                
+                print(data)
+            }) { (error) in
+                print("network error..")
+            }
+        } else {
+            self.dismiss(animated: true, completion: nil)
+            delegate?.paymentStateDidChangeTo(.fail(reason: "No User Fpund"))
+        }
+    }
+
+    func normalTransactionHandler(){
         let bundle = Bundle(url: Bundle.main.url(forResource: "Resources", withExtension: "bundle")!)
         self.initialSetupViewController = PTFWInitialSetupViewController.init(
         bundle: bundle,
@@ -102,9 +130,9 @@ class PaymentViewController: UIViewController {
         
         initialSetupViewController.didMove(toParent: self)
 
+
     }
     
-
     func setupViews(){
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(loadingIndicator)

@@ -24,7 +24,6 @@
 		031C49D5248C118E00054ECE /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031C49D1248C118E00054ECE /* APIRouter.swift */; };
 		031C49D6248C118E00054ECE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 031C49D2248C118E00054ECE /* README.md */; };
 		031C49D8248C141200054ECE /* TokenizableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031C49D7248C141200054ECE /* TokenizableResponse.swift */; };
-		031C49DA248C151000054ECE /* TokenizableRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031C49D9248C151000054ECE /* TokenizableRequestHandler.swift */; };
 		03692B9D248AF74F00682EFD /* TotalPriceHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692B9C248AF74F00682EFD /* TotalPriceHeaderCell.swift */; };
 		03692B9F248B055000682EFD /* CheckoutFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692B9E248B055000682EFD /* CheckoutFooterCell.swift */; };
 		03692BA2248B079300682EFD /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03692BA1248B079300682EFD /* Invoice.swift */; };
@@ -67,7 +66,6 @@
 		031C49D1248C118E00054ECE /* APIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		031C49D2248C118E00054ECE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		031C49D7248C141200054ECE /* TokenizableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenizableResponse.swift; sourceTree = "<group>"; };
-		031C49D9248C151000054ECE /* TokenizableRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenizableRequestHandler.swift; sourceTree = "<group>"; };
 		03692B9C248AF74F00682EFD /* TotalPriceHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPriceHeaderCell.swift; sourceTree = "<group>"; };
 		03692B9E248B055000682EFD /* CheckoutFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFooterCell.swift; sourceTree = "<group>"; };
 		03692BA1248B079300682EFD /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 			children = (
 				0398D7E5248AE45A006C76EF /* CheckoutForm.swift */,
 				031C49C5248B2E6600054ECE /* CheckoutFormConfigurator.swift */,
-				031C49D9248C151000054ECE /* TokenizableRequestHandler.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -496,7 +493,6 @@
 				0398D7C2248ADBAF006C76EF /* ViewController.swift in Sources */,
 				0398D7DC248AE260006C76EF /* FormItemUI.swift in Sources */,
 				031C49C6248B2E6600054ECE /* CheckoutFormConfigurator.swift in Sources */,
-				031C49DA248C151000054ECE /* TokenizableRequestHandler.swift in Sources */,
 				0398D7F1248AE92B006C76EF /* UITableView+Extensions.swift in Sources */,
 				0398D7BE248ADBAF006C76EF /* AppDelegate.swift in Sources */,
 				031C49D8248C141200054ECE /* TokenizableResponse.swift in Sources */,
