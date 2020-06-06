@@ -13,12 +13,8 @@ class CheckoutForm {
     private var currenciesHelper: CurrenciesHelper
     private var countriesHelper: CountriesHelper
 
-    var title: String?
-
-    var username: String?
-    var country: String?
-    var currency: String?
-    var phoneNumber: String?
+    var title: String
+    var invoice = Invoice()
     
     func isValid() -> (Bool, String?) {
       
@@ -37,45 +33,50 @@ class CheckoutForm {
     ) {
         self.countriesHelper = countriesHelper
         self.currenciesHelper = currenciesHelper
-        self.configureItems()
         self.title = "PayTaps Checkout Form"
+        self.configureItems()
     }
     
     private func configureItems() {
-        
-        // Username
-        let usernameItem = FormItem(mainTitle: "Username", placeholder: "Enter your username")
-        usernameItem.UIProperties.cellType = .textField
-        usernameItem.UIProperties.keyboardType = .numberPad
-        usernameItem.value = self.username
-        usernameItem.valueCompletion = { [weak self, weak usernameItem] value in
-            self?.username = value
-            usernameItem?.value = value
+        let items = CheckoutFormConfigurator.allCases
+        for item in items{
+            self.formItems.append(item.formItem)
         }
-        
-        // country
-        let CountryItem = FormItem(mainTitle: "Country", placeholder: "Select your country")
-        let countries = countriesHelper.countries()
-        CountryItem.UIProperties.cellType = .dropDown(items: countries)
-        CountryItem.value = self.currency
-        CountryItem.valueCompletion = { [weak self, weak CountryItem] value in
-            self?.country = value
-            CountryItem?.value = value
-        }
-
-
-        // currency
-        let currencyItem = FormItem(mainTitle: "Currency", placeholder: "Select your favorite currency")
-        let currencies = currenciesHelper.currencies()
-        currencyItem.UIProperties.cellType = .dropDown(items: currencies)
-        currencyItem.value = self.currency
-        currencyItem.valueCompletion = { [weak self, weak currencyItem] value in
-            self?.currency = value
-            currencyItem?.value = value
-        }
-
-        
-        // set all
-        self.formItems = [usernameItem, CountryItem, currencyItem]
+//        // Username
+//        let usernameItem = FormItem(mainTitle: "Username", placeholder: "Enter your username")
+//        usernameItem.UIProperties.cellType = .textField
+//        usernameItem.UIProperties.keyboardType = .numberPad
+//        usernameItem.value = self.invoice.BillingAddress
+//        usernameItem.valueCompletion = { [weak self, weak usernameItem] value in
+//            if let value = value{
+//                self?.invoice.BillingAddress = value
+//            }
+//            usernameItem?.value = value
+//        }
+//
+//        // country
+//        let CountryItem = FormItem(mainTitle: "Country", placeholder: "Select your country")
+//        let countries = countriesHelper.countries()
+//        CountryItem.UIProperties.cellType = .dropDown(items: countries)
+//        CountryItem.value = self.invoice.BillingCountry
+//        CountryItem.valueCompletion = { [weak self, weak CountryItem] value in
+//            self?.invoice.BillingCountry = value ?? ""
+//            CountryItem?.value = value
+//        }
+//
+//
+//        // currency
+//        let currencyItem = FormItem(mainTitle: "Currency", placeholder: "Select your favorite currency")
+//        let currencies = currenciesHelper.currencies()
+//        currencyItem.UIProperties.cellType = .dropDown(items: currencies)
+//        currencyItem.value = self.currency
+//        currencyItem.valueCompletion = { [weak self, weak currencyItem] value in
+//            self?.currency = value
+//            currencyItem?.value = value
+//        }
+//
+//
+//        // set all
+//        self.formItems = [usernameItem, CountryItem, currencyItem]
     }
 }
