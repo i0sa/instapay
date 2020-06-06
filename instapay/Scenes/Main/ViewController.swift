@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     let form = CheckoutForm()
+    let userManager: UserManager
+    
+    init(userManager: UserManager = UserManager()) {
+        self.userManager = userManager
+        super.init(nibName: nil, bundle: nil)
+    }
     
     lazy var tableView: UITableView = {
         let table = UITableView(frame: self.view.bounds, style: .grouped)
@@ -21,7 +27,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(UserManager().user)
         self.view.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.9490196078, blue: 0.9607843137, alpha: 1)
         setupViews()
 
@@ -55,6 +60,10 @@ class ViewController: UIViewController {
 //        print(form.invoice)
         self.tableView.reloadData()
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 
@@ -68,6 +77,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let cell = tableView.dequeue() as CheckoutFooterCell
+        cell.tokenizableUser = userManager.user
         cell.button.addTarget(self, action: #selector(didPressProceed(_:)), for: .touchUpInside)
         return cell
     }
@@ -90,9 +100,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(userManager.isTokenizable){
+            return 0
+        }
         return self.form.formItems.count
     }
-
 }
 
 extension ViewController: PaymentStateDelegate{
@@ -105,4 +117,6 @@ extension ViewController: PaymentStateDelegate{
             break
         }
     }
+    
+
 }
