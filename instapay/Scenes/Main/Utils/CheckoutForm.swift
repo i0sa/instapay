@@ -10,9 +10,9 @@ import Foundation
 
 class CheckoutForm {
     var formItems = [FormItem]()
-    private var currenciesHelper: CurrenciesHelper
-    private var countriesHelper: CountriesHelper
 
+    // default value, there's no normal cart behaviour to handle this, so i had it manually done.
+    var value: Float = 1337
     var title: String
     var invoice = Invoice()
     
@@ -28,55 +28,58 @@ class CheckoutForm {
       return (isValid, nil)
     }
     
-    init(currenciesHelper: CurrenciesHelper = CurrenciesHelper(),
-        countriesHelper: CountriesHelper = CountriesHelper()
-    ) {
-        self.countriesHelper = countriesHelper
-        self.currenciesHelper = currenciesHelper
+    init() {
         self.title = "PayTaps Checkout Form"
         self.configureItems()
+        self.invoice.amount = value
     }
     
     private func configureItems() {
         let items = CheckoutFormConfigurator.allCases
         for item in items{
-            self.formItems.append(item.formItem)
+            let formItem = item.formItem
+            formItem.valueCompletion = { [weak self] value in
+                //            self?.currency = value
+                formItem.value = value
+                self?.configureInvoiceValue(value: value, for: item, formItem: formItem)
+            }
+            self.formItems.append(formItem)
         }
-//        // Username
-//        let usernameItem = FormItem(mainTitle: "Username", placeholder: "Enter your username")
-//        usernameItem.UIProperties.cellType = .textField
-//        usernameItem.UIProperties.keyboardType = .numberPad
-//        usernameItem.value = self.invoice.BillingAddress
-//        usernameItem.valueCompletion = { [weak self, weak usernameItem] value in
-//            if let value = value{
-//                self?.invoice.BillingAddress = value
-//            }
-//            usernameItem?.value = value
-//        }
-//
-//        // country
-//        let CountryItem = FormItem(mainTitle: "Country", placeholder: "Select your country")
-//        let countries = countriesHelper.countries()
-//        CountryItem.UIProperties.cellType = .dropDown(items: countries)
-//        CountryItem.value = self.invoice.BillingCountry
-//        CountryItem.valueCompletion = { [weak self, weak CountryItem] value in
-//            self?.invoice.BillingCountry = value ?? ""
-//            CountryItem?.value = value
-//        }
-//
-//
-//        // currency
-//        let currencyItem = FormItem(mainTitle: "Currency", placeholder: "Select your favorite currency")
-//        let currencies = currenciesHelper.currencies()
-//        currencyItem.UIProperties.cellType = .dropDown(items: currencies)
-//        currencyItem.value = self.currency
-//        currencyItem.valueCompletion = { [weak self, weak currencyItem] value in
-//            self?.currency = value
-//            currencyItem?.value = value
-//        }
-//
-//
-//        // set all
-//        self.formItems = [usernameItem, CountryItem, currencyItem]
+    }
+    
+    func configureInvoiceValue(value: Any?, for item: CheckoutFormConfigurator, formItem: FormItem){
+        switch item{
+            
+        case .FirstName:
+            invoice.firstName = formItem.value ?? ""
+        case .LastName:
+            invoice.lastName = formItem.value ?? ""
+        case .Email:
+            invoice.CustomerEmail = formItem.value ?? ""
+        case .PhoneNumber:
+            invoice.PhoneNumber = formItem.value ?? ""
+        case .Currency:
+            invoice.CurrencyCode = formItem.value ?? ""
+        case .ShippingCountry:
+            invoice.ShippingCountry = formItem.value ?? ""
+        case .ShippingState:
+            invoice.ShippingState = formItem.value ?? ""
+        case .ShippingZipCode:
+            invoice.ShippingZIPCode = formItem.value ?? ""
+        case .ShippingAddress:
+            invoice.ShippingAddress = formItem.value ?? ""
+        case .ShippingCity:
+            invoice.ShippingCity = formItem.value ?? ""
+        case .BillingCountry:
+            invoice.BillingCountry = formItem.value ?? ""
+        case .BillingState:
+            invoice.BillingState = formItem.value ?? ""
+        case .BillingZipCode:
+            invoice.BillingZIPCode = formItem.value ?? ""
+        case .BillingAddress:
+            invoice.BillingAddress = formItem.value ?? ""
+        case .BillingCity:
+            invoice.BillingCity = formItem.value ?? ""
+        }
     }
 }

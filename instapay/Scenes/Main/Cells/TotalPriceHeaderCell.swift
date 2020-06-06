@@ -40,7 +40,7 @@ class TotalPriceHeaderCell: UITableViewHeaderFooterView {
     
     private func setupViews(){
         let backgroundView = UIView(frame: .zero)
-        backgroundView.backgroundColor = .clear
+        backgroundView.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.9490196078, blue: 0.9607843137, alpha: 1)
         self.backgroundView = backgroundView
 
         topLabel.translatesAutoresizingMaskIntoConstraints = false

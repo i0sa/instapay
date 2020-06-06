@@ -19,9 +19,16 @@ class FormItem {
     var UIProperties = FormItemUI()
     var isValid = true
     var isMandatory = true
-    init(mainTitle: String, placeholder: String, value: String? = nil) {
+    
+    init(mainTitle: String,
+         placeholder: String,
+         UIProperties: FormItemUI,
+         isMandatory: Bool,
+         value: String? = nil) {
         self.placeholder = placeholder
         self.mainTitle = mainTitle
+        self.UIProperties = UIProperties
+        self.isMandatory = isMandatory
         self.value = value
     }
 

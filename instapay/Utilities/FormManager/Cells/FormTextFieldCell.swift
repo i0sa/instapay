@@ -87,6 +87,7 @@ class FormTextFieldCell: UITableViewCell, FormCellProtocol {
     func configure(with formItem: FormItem) {
         self.formItem = formItem
         self.field.placeholder = formItem.placeholder
+        self.field.keyboardType = formItem.UIProperties.keyboardType
         self.topLabel.text = formItem.mainTitle
         let bgColor: UIColor = self.formItem?.isValid  == false ? .red : #colorLiteral(red: 0.8941176471, green: 0.8980392157, blue: 0.9098039216, alpha: 1)
         self.fieldContainer.layer.borderColor = bgColor.cgColor

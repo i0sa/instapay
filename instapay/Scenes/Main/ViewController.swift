@@ -12,10 +12,10 @@ class ViewController: UIViewController {
     let form = CheckoutForm()
     
     lazy var tableView: UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: self.view.bounds, style: .grouped)
         table.backgroundColor = .clear
         table.separatorStyle = .none
-        table.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+//        table.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         return table
     }()
     
@@ -38,13 +38,16 @@ class ViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.frame = self.view.bounds
         self.view.addSubview(tableView)
         
     }
     
     @objc func didPressProceed(_ sender: UIButton){
-        self.form.isValid()
+        self.view.endEditing(true)
+        if(self.form.isValid().0){
+            print("DONE ALL")
+        }
+        print(form.invoice)
         self.tableView.reloadData()
     }
 }

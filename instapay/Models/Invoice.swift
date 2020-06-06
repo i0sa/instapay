@@ -13,6 +13,9 @@ struct Invoice {
       
     var amount: Float
     var customerTitle: String
+    
+    var firstName: String
+    var lastName:String
     var CurrencyCode: String
     var TaxAmount: Float
     var SDKLanguage: String
@@ -40,11 +43,14 @@ struct Invoice {
     var IsThemeColorLight: Bool
     
     init() {
+        // default values
         self.amount = 0
-        self.customerTitle = ""
+        self.customerTitle = "Order for awesome service"
+        self.firstName = ""
+        self.lastName = ""
         self.CurrencyCode = ""
         self.TaxAmount = 0
-        self.SDKLanguage = ""
+        self.SDKLanguage = "en"
         self.ShippingAddress = ""
         self.ShippingCity = ""
         self.ShippingState = ""
@@ -55,16 +61,18 @@ struct Invoice {
         self.BillingCountry = ""
         self.BillingState = ""
         self.BillingZIPCode = ""
-        self.OrderId = ""
+        self.OrderId = "\(CGFloat.random(in: 1000000...9999999))"
         self.PhoneNumber = ""
         self.CustomerEmail = ""
-        self.IsTokenization = false
+        self.IsTokenization = true
+        
+        // Pre-Auth is off cus it requires PayTaps to activate it manually
         self.IsPreAuth = false
         self.MerchantEmail = ""
         self.MerchantSecretKey = ""
-        self.AssigneeCode = ""
-        self.ThemeColor = .black
-        self.IsThemeColorLight = false
+        self.AssigneeCode = "SDK"
+        self.ThemeColor = .red
+        self.IsThemeColorLight = true
         self.setupMerchantDetails()
 
     }
