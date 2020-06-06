@@ -1,0 +1,6 @@
+module Pods_instapay {
+  umbrella header "Pods-instapay-umbrella.h"
+
+  export *
+  module * { export * }
+}

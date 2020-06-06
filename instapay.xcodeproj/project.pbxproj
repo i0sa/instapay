@@ -195,9 +195,9 @@
 		0398D7D7248AE1FA006C76EF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				031C49C9248B657000054ECE /* PaymentResult */,
 				0398D7D8248AE204006C76EF /* Main */,
 				031C49BD248B257300054ECE /* Payment */,
+				031C49C9248B657000054ECE /* PaymentResult */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
