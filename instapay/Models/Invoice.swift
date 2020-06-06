@@ -85,6 +85,11 @@ struct Invoice {
         self.MerchantEmail = "me@i0sa.com"
         self.MerchantSecretKey = "C3jVTCkDYHncC4J7qZdyU7Rayw8t8V3KYnGSZ0vXISalXUtoTGWOOOZmk7Qs2Ud1hTTgUpeDioYfjrEc8B0WpZjJ69c94palj3Cd"
     }
+    
+    // again, i don't have cart mechanism, so i have to do it manually
+    mutating func refreshOrderId(){
+        self.OrderId = "\(CGFloat.random(in: 1000000...9999999))"
+    }
 
 }
 

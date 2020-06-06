@@ -31,10 +31,33 @@ enum APIRouter: URLRequestConvertible {
 
     var parameters: Parameters? {
         switch self {
-        case .TokenizableTransaction(let invoice, _):
+        case .TokenizableTransaction(let invoice, let tokenizableUser):
             return [
                 "merchant_email": invoice.MerchantEmail,
-                
+                "secret_key": invoice.MerchantSecretKey,
+                "title": invoice.customerTitle,
+                "cc_first_name": tokenizableUser.firstName ?? "",
+                "cc_last_name": tokenizableUser.lastName ?? "",
+                "order_id": invoice.OrderId,
+                "product_name": invoice.customerTitle,
+                "customer_email": invoice.CustomerEmail,
+                "phone_number": invoice.PhoneNumber,
+                "amount": invoice.amount,
+                "currency": invoice.CurrencyCode,
+                "address_billing": invoice.BillingAddress,
+                "state_billing": invoice.BillingState,
+                "city_billing": invoice.BillingCity,
+                "postal_code_billing": invoice.BillingZIPCode,
+                "country_billing": invoice.BillingCountry,
+                "address_shipping": invoice.ShippingAddress,
+                "city_shipping": invoice.ShippingCity,
+                "state_shipping": invoice.ShippingState,
+                "postal_code_shipping": invoice.ShippingZIPCode,
+                "country_shipping": invoice.ShippingCountry,
+                "pt_token": tokenizableUser.token ?? "",
+                "pt_customer_email": tokenizableUser.email ?? "",
+                "pt_customer_password": tokenizableUser.password ?? "",
+
             ]
         }
     }

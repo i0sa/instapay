@@ -44,18 +44,33 @@ class PaymentViewController: UIViewController {
         }
     }
     
+    func validateResponseCode(code: Int) -> Bool{
+        let successCodes = [100, 111, 112, 113, 115, 116]
+        if(successCodes.contains(code)){
+            return true
+        }
+        return false
+    }
+    
     func tokenizableTransactionHandler(){
         if let user = userManager.user {
             loadingIndicator.startAnimating()
+            invoice.refreshOrderId()
             network.performRequest(TokenizableResponse.self, router: .TokenizableTransaction(invoice: invoice, TokenizableUser: user), success: { [weak self] (data) in
-                
-                print(data)
-            }) { (error) in
-                print("network error..")
+                if(self?.validateResponseCode(code: data.responseCode) == true){
+                    self?.delegate?.paymentStateDidChangeTo(.success(message: data.result ?? ""))
+                } else {
+                    self?.delegate?.paymentStateDidChangeTo(.fail(reason: data.result ?? ""))
+                }
+                self?.dismiss(animated: true, completion: nil)
+            }) { [weak self] (error) in
+                self?.delegate?.paymentStateDidChangeTo(.fail(reason: "Network Error"))
+                self?.dismiss(animated: true, completion: nil)
+//                print("network error.. \(error)")
             }
         } else {
             self.dismiss(animated: true, completion: nil)
-            delegate?.paymentStateDidChangeTo(.fail(reason: "No User Fpund"))
+            delegate?.paymentStateDidChangeTo(.fail(reason: "No User Found"))
         }
     }
 
@@ -106,8 +121,7 @@ class PaymentViewController: UIViewController {
         
         self.initialSetupViewController.didReceiveFinishTransactionCallback = { [weak self] (responseCode, result, transactionID, tokenizedCustomerEmail, tokenizedCustomerPassword, token, transactionState) in
             
-            let successCodes = [100, 111, 112, 113, 115, 116]
-            if(successCodes.contains(Int(responseCode))){
+            if(self?.validateResponseCode(code: Int(responseCode)) == true){
                 if(tokenizedCustomerEmail.count > 0){
                     self?.userManager.storeUserData(firstName: self?.invoice.firstName ?? "", lastName: self?.invoice.lastName ?? "", email: tokenizedCustomerEmail, password: tokenizedCustomerPassword, token: token)
                 }
