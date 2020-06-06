@@ -10,7 +10,7 @@
 import Foundation
 
 class CurrenciesHelper{
-    static func currencies() -> [Currency] {
+    func currencies() -> [Currency] {
         let bundle = Bundle(url: Bundle.main.url(forResource: "Resources", withExtension: "bundle")!)
         if let path = bundle?.path(forResource: "currencies", ofType: "json") {
             do {

@@ -9,7 +9,7 @@
 import Foundation
 
 class CountriesHelper{
-    static func currencies() -> [Country] {
+    func countries() -> [Country] {
         let bundle = Bundle(url: Bundle.main.url(forResource: "Resources", withExtension: "bundle")!)
         if let path = bundle?.path(forResource: "countries", ofType: "json") {
             do {

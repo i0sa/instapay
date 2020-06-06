@@ -10,10 +10,13 @@ import Foundation
 
 class CheckoutForm {
     var formItems = [FormItem]()
-    
+    private var currenciesHelper: CurrenciesHelper
+    private var countriesHelper: CountriesHelper
+
     var title: String?
 
     var username: String?
+    var country: String?
     var currency: String?
     var phoneNumber: String?
     
@@ -29,9 +32,13 @@ class CheckoutForm {
       return (isValid, nil)
     }
     
-    init() {
-      self.configureItems()
-      self.title = "Amazing form"
+    init(currenciesHelper: CurrenciesHelper = CurrenciesHelper(),
+        countriesHelper: CountriesHelper = CountriesHelper()
+    ) {
+        self.countriesHelper = countriesHelper
+        self.currenciesHelper = currenciesHelper
+        self.configureItems()
+        self.title = "PayTaps Checkout Form"
     }
     
     private func configureItems() {
@@ -45,11 +52,21 @@ class CheckoutForm {
             self?.username = value
             usernameItem?.value = value
         }
+        
+        // country
+        let CountryItem = FormItem(mainTitle: "Country", placeholder: "Select your country")
+        let countries = countriesHelper.countries()
+        CountryItem.UIProperties.cellType = .dropDown(items: countries)
+        CountryItem.value = self.currency
+        CountryItem.valueCompletion = { [weak self, weak CountryItem] value in
+            self?.country = value
+            CountryItem?.value = value
+        }
 
-        // textview
+
+        // currency
         let currencyItem = FormItem(mainTitle: "Currency", placeholder: "Select your favorite currency")
-        let currencies = CurrenciesHelper.currencies()
-//        let items = [Country(title: "heYww", value:"k"), Country(title: "heY", value:"k")]
+        let currencies = currenciesHelper.currencies()
         currencyItem.UIProperties.cellType = .dropDown(items: currencies)
         currencyItem.value = self.currency
         currencyItem.valueCompletion = { [weak self, weak currencyItem] value in
@@ -59,6 +76,6 @@ class CheckoutForm {
 
         
         // set all
-        self.formItems = [usernameItem, currencyItem]
+        self.formItems = [usernameItem, CountryItem, currencyItem]
     }
 }

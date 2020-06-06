@@ -68,8 +68,9 @@ class FormDropDownCell: UITableViewCell, FormCellProtocol {
     }
 
     func setupViews(){
-        dropDown.anchorView = field // UIView or UIBarButtonItem
-
+        dropDown.anchorView = fieldContainer // UIView or UIBarButtonItem
+        dropDown.dismissMode = .manual
+        dropDown.bottomOffset = CGPoint(x: 0, y:65)
         // The list of items to display. Can be changed dynamically
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in
             // set value should be the value in model
