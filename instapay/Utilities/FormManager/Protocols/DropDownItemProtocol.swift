@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DropDownItem {
-    var title: String?
-    var value: String?
+protocol DropDownItemProtocol {
+    var title: String? {get}
+    var value: String? {get}
 }

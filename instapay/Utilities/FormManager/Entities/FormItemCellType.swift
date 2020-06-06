@@ -12,7 +12,7 @@ import UIKit
 enum FormItemCellType {
     case textField
     case textView
-    case dropDown(items: [DropDownItem])
+    case dropDown(items: [DropDownItemProtocol])
     
     static func registerCells(for tableView: UITableView) {
         tableView.registerCell(cellClass: FormTextFieldCell.self)

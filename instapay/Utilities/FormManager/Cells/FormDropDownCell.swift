@@ -10,7 +10,7 @@ import Foundation
 import DropDown
 
 class FormDropDownCell: UITableViewCell, FormCellProtocol {
-    var items: [DropDownItem]?{
+    var items: [DropDownItemProtocol]?{
         didSet{
             if let items = items {
                 dropDown.dataSource = items.map({ (item) in
