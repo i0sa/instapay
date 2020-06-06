@@ -34,4 +34,8 @@ class UserManager{
             return user != nil
         }
     }
+    
+    func logout(){
+        keychain.delete(UserKey)
+    }
 }

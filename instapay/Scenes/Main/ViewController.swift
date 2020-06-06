@@ -9,11 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let form = CheckoutForm()
+    let form: CheckoutForm
     let userManager: UserManager
     
-    init(userManager: UserManager = UserManager()) {
+    init(userManager: UserManager = UserManager(), checkoutForm: CheckoutForm = CheckoutForm()) {
         self.userManager = userManager
+        self.form = checkoutForm
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -47,6 +48,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         self.view.addSubview(tableView)
         
+        setupLogoutButtonIfNeeded()
     }
     
     @objc func didPressProceed(_ sender: UIButton){
@@ -58,6 +60,21 @@ class ViewController: UIViewController {
             self.present(view, animated: true, completion: nil)
         }
 //        print(form.invoice)
+        self.tableView.reloadData()
+    }
+    
+    func setupLogoutButtonIfNeeded(){
+        if(userManager.isTokenizable){
+        let logout = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(didPressLogout(_:)))
+            self.navigationItem.rightBarButtonItem = logout
+        } else {
+            self.navigationItem.rightBarButtonItem = nil
+        }
+    }
+    
+    @objc func didPressLogout(_ sender: Any){
+        userManager.logout()
+        setupLogoutButtonIfNeeded()
         self.tableView.reloadData()
     }
     
