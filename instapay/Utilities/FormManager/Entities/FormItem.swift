@@ -10,6 +10,12 @@ import Foundation
 
 class FormItem {
     var value: String?
+//    {
+//        get{
+//            return "HEY"
+//        }
+//        set{}
+//    }
     var mainTitle = ""
     var placeholder = ""
     

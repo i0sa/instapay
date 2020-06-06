@@ -85,6 +85,7 @@ class FormTextFieldCell: UITableViewCell, FormCellProtocol {
     }
 
     func configure(with formItem: FormItem) {
+        self.field.text = formItem.value
         self.formItem = formItem
         self.field.placeholder = formItem.placeholder
         self.field.keyboardType = formItem.UIProperties.keyboardType

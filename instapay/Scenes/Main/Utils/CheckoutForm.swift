@@ -38,10 +38,10 @@ class CheckoutForm {
         let items = CheckoutFormConfigurator.allCases
         for item in items{
             let formItem = item.formItem
-            formItem.valueCompletion = { [weak self] value in
+            formItem.valueCompletion = { value in
                 //            self?.currency = value
                 formItem.value = value
-                self?.configureInvoiceValue(value: value, for: item, formItem: formItem)
+                self.configureInvoiceValue(value: value, for: item, formItem: formItem)
             }
             self.formItems.append(formItem)
         }

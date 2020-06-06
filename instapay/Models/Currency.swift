@@ -8,18 +8,12 @@
 
 import Foundation
 
-struct Country: Decodable {
-    var name: String?
+struct Currency: Decodable {
     var code: String?
-    
-    enum CodingKeys: String, CodingKey {
-       case name
-       case code = "alpha-3"
-    }
-
+    var name: String?
 }
 
-extension Country: DropDownItemProtocol {
+extension Currency: DropDownItemProtocol {
     var title: String? {
         return name
     }
@@ -27,5 +21,6 @@ extension Country: DropDownItemProtocol {
     var value: String? {
         return code
     }
+    
     
 }

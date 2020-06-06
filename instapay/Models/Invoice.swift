@@ -110,7 +110,7 @@ struct Invoice {
     // should be done from backend, but it's a task after all..
     mutating func setupMerchantDetails(){
         self.MerchantEmail = "me@i0sa.com"
-        self.MerchantSecretKey = ""
+        self.MerchantSecretKey = "C3jVTCkDYHncC4J7qZdyU7Rayw8t8V3KYnGSZ0vXISalXUtoTGWOOOZmk7Qs2Ud1hTTgUpeDioYfjrEc8B0WpZjJ69c94palj3Cd"
     }
 
 }

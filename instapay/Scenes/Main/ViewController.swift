@@ -45,9 +45,11 @@ class ViewController: UIViewController {
     @objc func didPressProceed(_ sender: UIButton){
         self.view.endEditing(true)
         if(self.form.isValid().0){
-            print("DONE ALL")
+            let view = PaymentViewController(invoice: form.invoice)
+            view.modalPresentationStyle = .overFullScreen
+            self.present(view, animated: true, completion: nil)
         }
-        print(form.invoice)
+//        print(form.invoice)
         self.tableView.reloadData()
     }
 }
@@ -56,7 +58,9 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return tableView.dequeue() as TotalPriceHeaderCell
+        let cell = tableView.dequeue() as TotalPriceHeaderCell
+        cell.setupWithPrice(price: form.invoice.amount)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

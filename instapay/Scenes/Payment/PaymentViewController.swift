@@ -22,6 +22,7 @@ class PaymentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         setupViews()
         let bundle = Bundle(url: Bundle.main.url(forResource: "Resources", withExtension: "bundle")!)
         self.initialSetupViewController = PTFWInitialSetupViewController.init(
@@ -63,6 +64,10 @@ class PaymentViewController: UIViewController {
           self?.loadingIndicator.stopAnimating()
         }
         
+        self.initialSetupViewController.didReceiveBackButtonCallback = { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
+        
         self.initialSetupViewController.didReceiveFinishTransactionCallback = {(responseCode, result, transactionID, tokenizedCustomerEmail, tokenizedCustomerPassword, token, transactionState) in
             print("Response Code: \(responseCode)")
             print("Response Result: \(result)")
@@ -73,6 +78,10 @@ class PaymentViewController: UIViewController {
             print("TOkenization Token: \(token)");
         }
 
+        self.view.addSubview(initialSetupViewController.view)
+        self.addChild(initialSetupViewController)
+        
+        initialSetupViewController.didMove(toParent: self)
 
     }
     

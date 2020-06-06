@@ -87,6 +87,7 @@ class FormTextViewCell: UITableViewCell, FormCellProtocol, UITextViewDelegate {
     }
     
     func configure(with formItem: FormItem) {
+        self.textView.text = formItem.value
         self.formItem = formItem
 //        self.field.placeholder = formItem.placeholder
         self.topLabel.text = formItem.mainTitle

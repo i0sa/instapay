@@ -13,5 +13,5 @@ enum PaymentState {
     case started
     
     case success
-    case fail
+    case fail(reason: String)
 }

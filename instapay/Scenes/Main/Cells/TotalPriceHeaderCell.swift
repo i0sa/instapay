@@ -35,7 +35,7 @@ class TotalPriceHeaderCell: UITableViewHeaderFooterView {
 
 
         setupViews()
-        setupWithPrice(price: 100)
+//        setupWithPrice(price: 100)
     }
     
     private func setupViews(){
@@ -59,7 +59,7 @@ class TotalPriceHeaderCell: UITableViewHeaderFooterView {
         ])
     }
     
-    private func setupWithPrice(price: Double){
+    func setupWithPrice(price: Float){
         self.fullPrice.text = "\(price)"
     }
     
