@@ -12,7 +12,7 @@ class CheckoutForm {
     var formItems = [FormItem]()
 
     // default value, there's no normal cart behaviour to handle this, so i had it manually done.
-    var value: Float = 1337
+    var value: Float = 493.53
     var title: String
     var invoice = Invoice()
     

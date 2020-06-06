@@ -69,9 +69,17 @@ class PaymentViewController: UIViewController {
         }
         
         self.initialSetupViewController.didReceiveFinishTransactionCallback = {(responseCode, result, transactionID, tokenizedCustomerEmail, tokenizedCustomerPassword, token, transactionState) in
+            
+            let successCodes = [100, 111, 112, 113, 115, 116]
+            if(successCodes.contains(Int(responseCode))){
+                self.delegate?.paymentStateDidChangeTo(.success(message: result))
+            } else {
+                self.delegate?.paymentStateDidChangeTo(.fail(reason: result))
+            }
+            self.dismiss(animated: true, completion: nil)
             print("Response Code: \(responseCode)")
             print("Response Result: \(result)")
-            
+            // store in keychain
             // In Case you are using tokenization
             print("Tokenization Cutomer Email: \(tokenizedCustomerEmail)");
             print("Tokenization Customer Password: \(tokenizedCustomerPassword)");

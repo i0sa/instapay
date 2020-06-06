@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     }
 
     func setupViews() {
+        self.title = form.title
         // register cells related to form builder
         FormItemCellType.registerCells(for: tableView)
         // register internal cells
@@ -47,6 +48,7 @@ class ViewController: UIViewController {
         if(self.form.isValid().0){
             let view = PaymentViewController(invoice: form.invoice)
             view.modalPresentationStyle = .overFullScreen
+            view.delegate = self
             self.present(view, animated: true, completion: nil)
         }
 //        print(form.invoice)
@@ -95,15 +97,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 extension ViewController: PaymentStateDelegate{
     func paymentStateDidChangeTo(_ state: PaymentState) {
         switch state {
-        case .loading:
+        case .success, .fail:
+            let view = PaymentResultViewController(paymentStatus: state)
+            self.navigationController?.setViewControllers([view], animated: true)
+        default:
             break
-        case .started:
-            break
-        case .success:
-            break
-        case .fail:
-            break
-
         }
     }
 }
