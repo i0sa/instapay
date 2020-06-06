@@ -127,8 +127,12 @@ class FormDropDownCell: UITableViewCell, FormCellProtocol {
         self.formItem = formItem
         self.field.placeholder = formItem.placeholder
         self.topLabel.text = formItem.mainTitle
-        let bgColor: UIColor = self.formItem?.isValid  == false ? .red : #colorLiteral(red: 0.8941176471, green: 0.8980392157, blue: 0.9098039216, alpha: 1)
-        self.fieldContainer.layer.borderColor = bgColor.cgColor
+        if(self.formItem?.isValid == false){
+            self.fieldContainer.layer.borderColor = UIColor.red.cgColor
+            AnimationsFactory.addAnimations(self, animations: [.redBorder, .shake])
+        } else {
+            self.fieldContainer.layer.borderColor = #colorLiteral(red: 0.8941176471, green: 0.8980392157, blue: 0.9098039216, alpha: 1)
+        }
     }
     
     required init?(coder: NSCoder) {
