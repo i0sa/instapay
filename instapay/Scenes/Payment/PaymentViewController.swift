@@ -8,8 +8,10 @@
 
 import UIKit
 
-class PaymentViewController: UIViewController {
 
+class PaymentViewController: UIViewController {
+    weak var delegate: PaymentStateDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,3 +25,4 @@ class PaymentViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 }
+

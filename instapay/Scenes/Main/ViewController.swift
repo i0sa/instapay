@@ -84,3 +84,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
 }
+
+extension ViewController: PaymentStateDelegate{
+    func paymentStateDidChangeTo(_ state: PaymentState) {
+        switch state {
+            
+        case .success:
+            break
+        case .fail:
+            break
+        }
+    }
+}
